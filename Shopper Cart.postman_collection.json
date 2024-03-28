@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "f0f3a4ab-b2d1-4aec-aec1-9d133f52fde2",
+		"name": "Shopper Cart",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33643733",
+		"_collection_link": "https://www.postman.com/spacecraft-specialist-7984735/workspace/shopperstack/collection/33643733-f0f3a4ab-b2d1-4aec-aec1-9d133f52fde2?action=share&source=collection_link&creator=33643733"
+	},
+	"item": [
+		{
+			"name": "Add a product to the cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWTtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"productId\": 8,\r\n  \"quantity\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/shoppers/{{shopperId}}/carts",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"shoppers",
+						"{{shopperId}}",
+						"carts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all the products from the cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWTtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/shoppers/{{shopperId}}/carts",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"shoppers",
+						"{{shopperId}}",
+						"carts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a product in the cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWTtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"productId\": 2,\r\n  \"quantity\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/shoppers/{{shopperId}}/carts/{{itemId}}",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"shoppers",
+						"{{shopperId}}",
+						"carts",
+						"{{itemId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a product from the cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWTtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/shoppers/{{shopperId}}/carts/{{productId}}",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"shoppers",
+						"{{shopperId}}",
+						"carts",
+						"{{productId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
